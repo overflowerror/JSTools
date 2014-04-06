@@ -2,7 +2,7 @@ var AjaxConnector = function() {
 }
 AjaxConnector.reqGet = function(file, pars, bg, after) {
 	var http = new XMLHttpRequest();
-	http.open("GET", "ajax/" + file + ".php?" + pars, bg);
+	http.open("GET", file + "?" + pars, bg);
 	if (bg) {
 		http.onreadystatechange = function() {
 			if (http.readyState == 4) {
@@ -16,7 +16,7 @@ AjaxConnector.reqGet = function(file, pars, bg, after) {
 }
 AjaxConnector.reqPost = function(file, get, pars, bg, after) {
 	var http = new XMLHttpRequest();
-	http.open("POST", "ajax/" + file + ".php?" + get, bg);
+	http.open("POST", file + "?" + get, bg);
 	http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	http.setRequestHeader("Content-length", pars.length);
 	http.setRequestHeader("Connection", "close")
